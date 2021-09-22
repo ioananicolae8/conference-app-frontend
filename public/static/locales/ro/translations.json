@@ -6,7 +6,7 @@
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "NavBar": {
     "MyFirstMenu": "Primul meu meniu",
-    "Dashboard": "Panou central",
+    "Welcome": "Bun venit!",
     "Settings": "Setari",
     "User": "Profil"
   },
@@ -19,6 +19,7 @@
     "Yes": "Da",
     "No": "Nu"
   },
+
   "DateTime": {
     "InvalidDateMessage": "Formatul datei este invalid",
     "MinDateMessage": "Data introdusa nu poate fi mai mica decat valoarea minima",
@@ -44,5 +45,10 @@
       "MinCharacters": "Lungimea trebuie sa fie mai mare decat {{min}}",
       "Unique": "Valoarea pentru {{selector}} trebuie sa fie unica"
     }
+  },
+  "LandingPage": {
+    "Title": "Bun venit!",
+    "Subtitle": "Te rog introdu email-ul personal:",
+    "BadEmail": "Email incorect!"
   }
 }
