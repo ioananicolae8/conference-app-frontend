@@ -20,7 +20,7 @@ function Welcome() {
   const [inputValue, setInputValue] = useState(email) 
   const handleTextFieldValueChange = useCallback((event) => setInputValue(event.target.value), [])
   const handleButtonClick = useCallback(()=>{
-    const isEmailValid = validateEmail(inputValue)
+  const isEmailValid = validateEmail(inputValue)
     ? inputValue
     :emptyString
     setEmail(isEmailValid ? inputValue : emptyString)

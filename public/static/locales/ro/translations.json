@@ -8,7 +8,8 @@
     "MyFirstMenu": "Primul meu meniu",
     "Welcome": "Bun venit!",
     "Settings": "Setari",
-    "User": "Profil"
+    "User": "Profil",
+    "ConferenceList": "Lista Conferinte"
   },
   "Tooltips": {
     "Logout": "Iesire",
@@ -49,6 +50,27 @@
   "LandingPage": {
     "Title": "Bun venit!",
     "Subtitle": "Te rog introdu email-ul personal:",
-    "BadEmail": "Email incorect!"
+    "BadEmail": "Email incorect!",
+    "UserMenu" : "Utilizator"
+  },
+  "UserMenu": {
+    "User" : "Utilizator"
+  },
+  "General": {
+    "Buttons": {
+      "ApplyFilters": "Aplica filtre",
+      "ResetFilters": "Reseteaza filtre"
+    }
+  },
+  "Conferences": {
+    "Speaker": "Orator:",
+    "Attend": "Participa",
+    "Join": "Inscrie-te",
+    "Withdraw": "Retrage-te",
+    "StatusNotSet": "Nu participi",
+    "Filters": {
+      "StartDate": "Data incepere",
+      "EndDate": "Data terminare"
+    }
   }
-}
+  }
