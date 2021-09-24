@@ -10,7 +10,9 @@ import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import HelloWorld from '../features/helloWorld/HelloWorld'
 import { useEmail } from 'hooks/useEmail'
 import ConferenceListContainer from 'features/conference/components/ConferenceListContainer'
- 
+import MyConferenceListContainer from 'features/myConference/list/components/MyConferenceListContainer'
+import MyConferenceContainer from 'features/myConference/edit/components/MyConferenceContainer' 
+
 export default function AppRoutes() {
   const [email] = useEmail()
   if(!email)
@@ -29,9 +31,12 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path="/conferenceList" component={ConferenceListContainer} />
       <CustomRoute isPrivate={false} exact path='/welcome' component={Welcome} />
       <CustomRoute exact path='/settings' component={Settings} />
+      <CustomRoute isPrivate={false} exact path="/myConferenceList" component={MyConferenceListContainer} />
+      <CustomRoute isPrivate={false} exact path="/myConferences/:id(new)" component={MyConferenceContainer} />
       <Redirect exact from='/' to='/welcome' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
+      
     </Switch>
     )
   
