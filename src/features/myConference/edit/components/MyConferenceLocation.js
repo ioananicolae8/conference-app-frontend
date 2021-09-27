@@ -4,9 +4,13 @@ import { Grid } from '@material-ui/core';
 import Autocomplete from '@bit/totalsoft_oss.react-mui.autocomplete';
 import CustomTextField from '@bit/totalsoft_oss.react-mui.custom-text-field';
 import { useTranslation } from 'react-i18next';
+import { onTextBoxChange } from 'utils/propertyChangeAdapters';
 
 const MyConferenceLocation = (props) => {
-		const { countries, counties, cities } = props
+		const { countries, counties, cities, location, dispatch} = props
+        const { name, address, country, county, city, latitude, longitude } = location
+        const handleDispatch = actionType => value => dispatch({ type: actionType, payload: value })
+
     const { t } = useTranslation();
 
     return <Grid item container lg={12} spacing={3}>
@@ -15,12 +19,14 @@ const MyConferenceLocation = (props) => {
                 <CustomTextField
                     label={t('Location.Name')}
                     fullWidth
+                    value = {name} onChange={onTextBoxChange(handleDispatch('locationName'))}
                 />
             </Grid>
             <Grid item xs={12} sm={6} lg={6}>
                 <CustomTextField
                     label={t('Location.Address')}
                     fullWidth
+                    value={address} onChange ={onTextBoxChange (handleDispatch('address'))}
                 />
             </Grid>
         </Grid>
@@ -34,6 +40,8 @@ const MyConferenceLocation = (props) => {
                     isSearchable
                     creatable
                     options={countries}
+                    value={country}
+                    onChange={handleDispatch("country")}
                 />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -45,6 +53,8 @@ const MyConferenceLocation = (props) => {
                     isSearchable
                     creatable
                     options={counties}
+                    value={county}
+                    onChange={handleDispatch("county")}
                 />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
@@ -56,6 +66,8 @@ const MyConferenceLocation = (props) => {
                     isSearchable
                     creatable
                     options={cities}
+                    value={city}
+                    onChange={handleDispatch("city")}
                 />
             </Grid>
         </Grid>
@@ -64,12 +76,16 @@ const MyConferenceLocation = (props) => {
                 <CustomTextField
                     label={t('Location.Latitude')}
                     fullWidth
+                    value={latitude}
+                    onChange={onTextBoxChange(handleDispatch("latitude"))}
                 />
             </Grid>
             <Grid item xs={12} sm={6} lg={3}>
                 <CustomTextField
                     label={t('Location.Longitude')}
                     fullWidth
+                    value={longitude}
+                    onChange={onTextBoxChange(handleDispatch("longitude"))}
                 />
             </Grid>
         </Grid>
@@ -79,7 +95,9 @@ const MyConferenceLocation = (props) => {
 MyConferenceLocation.propTypes = {
     countries: PropTypes.array.isRequired,
     counties: PropTypes.array.isRequired,
-    cities: PropTypes.array.isRequired
+    cities: PropTypes.array.isRequired,
+    location: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired
 }
 
 export default MyConferenceLocation;

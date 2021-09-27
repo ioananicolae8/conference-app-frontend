@@ -6,7 +6,7 @@ import MyConferenceList from './MyConferenceList';
 import { generateDefaultFilters } from 'utils/functions';
 import { useTranslation } from 'react-i18next';
 import { useHeader } from 'providers/AreasProvider';
-import MyConferenceHeader from '../MyConferenceHeader';
+import MyConferenceHeader from './MyConferenceHeader';
 import { AddButton } from '@bit/totalsoft_oss.react-mui.kit.core';
 import { useHistory } from 'react-router';
 
