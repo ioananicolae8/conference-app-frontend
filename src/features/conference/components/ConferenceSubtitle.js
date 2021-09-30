@@ -15,14 +15,14 @@ return(
             <PermIdentity/>
         </Grid>
         <Grid item lg={11}>
-                <Typography>{t('Conferences.Speaker')}</Typography>
-                <Typography >{speaker?.name}</Typography>
+                <Typography variant="caption">{t('Conferences.Speaker')}</Typography>
+                <Typography variant="caption">{speaker?.name}</Typography>
             </Grid>
         <Grid item lg={1}>
               <Room/>
         </Grid>
         <Grid item lg={11}>
-            <Typography>{`${location?.city.name}, ${location?.county.name}, ${location?.country.name}`}</Typography>
+            <Typography variant="caption">{`${location?.city.name}, ${location?.county.name}, ${location?.country.name}`}</Typography>
         </Grid>
     </Grid>
     )
