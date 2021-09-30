@@ -9,7 +9,7 @@ const ConferenceContent = (props) => {
     const { conference } = props
     const { status, startDate, endDate, type, category } = conference
     const { t } = useTranslation()
-    const noStatusSet = t('Conferences.StatusNoSet')
+    const noStatusSet = t('Conferences.StatusNotSet')
  
     const showJoin = status?.id === attendeeStatus.Attended
     const showWithdraw = status?.id === attendeeStatus.Attended || status?.id === attendeeStatus.Joined
