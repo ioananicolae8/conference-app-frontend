@@ -1,37 +1,36 @@
-import React from 'react' 
-import  PropTypes from 'prop-types'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import { Grid } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
-import { PermIdentity , Room} from '@material-ui/icons'
+import { PermIdentity, Room } from '@material-ui/icons'
 
-const MyConferenceSubtitle=(props) => {
-    const {speaker, location} = props
-    const {t} = useTranslation()
+const MyConferenceSubtitle = props => {
+  const { speaker, location } = props
+  const { t } = useTranslation()
 
-return(
+  return (
     <Grid container item lg={12}>
-        <Grid item xs={1}>
-            <PermIdentity/>
-        </Grid>
-        <Grid item lg={11}>
-                <Typography>{t('Conferences.Speaker')}</Typography>
-                <Typography >{speaker?.name}</Typography>
-            </Grid>
-        <Grid item lg={1}>
-              <Room/>
-        </Grid>
-        <Grid item lg={11}>
-            <Typography>{`${location?.city.name}, ${location?.county.name}, ${location?.country.name}`}</Typography>
-        </Grid>
+      <Grid item xs={1}>
+        <PermIdentity />
+      </Grid>
+      <Grid item lg={11}>
+        <Typography>{t('Conferences.Speaker')}</Typography>
+        <Typography>{speaker?.name}</Typography>
+      </Grid>
+      <Grid item lg={1}>
+        <Room />
+      </Grid>
+      <Grid item lg={11}>
+        <Typography>{`${location?.city.name}, ${location?.county.name}, ${location?.country.name}`}</Typography>
+      </Grid>
     </Grid>
-    )
-
+  )
 }
 
 MyConferenceSubtitle.propTypes = {
-    speaker: PropTypes.object,
-    location: PropTypes.object.isRequired
+  speaker: PropTypes.object,
+  location: PropTypes.object.isRequired
 }
 
-export default MyConferenceSubtitle;
+export default MyConferenceSubtitle

@@ -1,7 +1,7 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const MY_FIRST_QUERY = gql`
-query myFirstQuery {
+  query myFirstQuery {
     myFirstEndpoint
-}
+  }
 `

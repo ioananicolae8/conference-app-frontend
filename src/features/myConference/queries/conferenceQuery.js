@@ -1,44 +1,65 @@
-import { gql } from '@apollo/client';
-import ConferenceFragments from 'features/conference/gql/queries/fragments';
-import CommonFragments from 'features/common/fragments';
+import { gql } from '@apollo/client'
+import ConferenceFragments from 'features/conference/gql/queries/fragments'
+import CommonFragments from 'features/common/fragments'
 
-
-export const CONFERENCE_QUERY= gql`
-query conferenceById($id: ID!) {
-  conference(id: $id) {
-   ...conference
-    location {
-      ...location
-      country {
-        ...country
+export const CONFERENCE_QUERY = gql`
+  query conferenceData($id: ID!, $isNew: Boolean!) {
+    conference(id: $id) @skip(if: $isNew) {
+      ...conference
+      type {
+        ...type
       }
-      county {
-       ...county
+      category {
+        ...category
       }
-      city {
-        ...city
+      location {
+        ...location
+        city {
+          ...city
+        }
+        county {
+          ...county
+        }
+        country {
+          ...country
+        }
       }
-    
+      speakers {
+        ...speaker
+      }
     }
-    type {
-     ...type
+    typeList {
+      id
+      name
+      code
     }
-    category {
-      ...category
+    categoryList {
+      id
+      name
+      code
     }
-    speakers {
-      ...speaker
+    countryList {
+      id
+      name
+      code
+    }
+    countyList {
+      id
+      name
+      code
+    }
+    cityList {
+      id
+      name
+      code
     }
   }
-}
-${ConferenceFragments.conference}
-${ConferenceFragments.location}
-${ConferenceFragments.speaker}
-${CommonFragments.county}
-${CommonFragments.country}
-${CommonFragments.city}
-${CommonFragments.type}
-${CommonFragments.category}
-
+  ${ConferenceFragments.conference}
+  ${ConferenceFragments.speaker}
+  ${ConferenceFragments.location}
+  ${CommonFragments.type}
+  ${CommonFragments.category}
+  ${CommonFragments.city}
+  ${CommonFragments.county}
+  ${CommonFragments.country}
 `
-
