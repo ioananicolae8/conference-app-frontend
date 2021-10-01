@@ -49,7 +49,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         speakers: state.speakers.filter(s => s.id !== action.payload),
-        // speakers: state.speakers |> filter (propEq('id', action.payload)),
         deletedSpeakers: action.payload > 0 ? [...state.deletedSpeakers, action.payload] : state.deletedSpeakers
       }
     }

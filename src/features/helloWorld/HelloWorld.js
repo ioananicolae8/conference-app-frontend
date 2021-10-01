@@ -8,8 +8,6 @@ function HelloWorld() {
   if (loading) {
     return <LoadingFakeText lines={10} />
   }
-
   return data?.myFirstEndpoint
 }
-
 export default HelloWorld

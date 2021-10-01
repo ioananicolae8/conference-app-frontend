@@ -33,7 +33,6 @@ const MyConferenceInfo = props => {
             createdLabel='Conference.Type'
             fullWidth
             isClearable
-            isSearchable
             creatable
             options={types}
             value={type}
@@ -46,7 +45,6 @@ const MyConferenceInfo = props => {
             createdLabel='Conference.Category'
             fullWidth
             isClearable
-            isSearchable
             creatable
             options={categories}
             value={category}
@@ -61,8 +59,8 @@ const MyConferenceInfo = props => {
 MyConferenceInfo.propTypes = {
   types: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
-  conference: PropTypes.array.isRequired,
-  dispatch: PropTypes.array.isRequired
+  conference: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
 
 export default MyConferenceInfo

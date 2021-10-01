@@ -61,4 +61,6 @@ export const generateDefaultFilters = () => {
 }
 
 export const extractPager = ({ page, pageSize }) => ({ page, pageSize })
+
+export const compareOptions = curry(({id:valueId},{id:optionId}) =>valueId === optionId)
  

@@ -37,7 +37,7 @@ function Welcome() {
       <Grid item xs={12}>
         <Typography variant='h5'>{t('LandingPage.Title')}</Typography>
       </Grid>
-      <Grid item container justifyContent='center' alignIntems='center' alignContent='center' direction='column' spacing={1}>
+      <Grid item container justifyContent='center' alignItems='center' alignContent='center' direction='column' spacing={1}>
         <Grid item xs={12}>
           <Typography variant='caption'>{t('LandingPage.Subtitle')}</Typography>
         </Grid>
@@ -48,7 +48,7 @@ function Welcome() {
             onChange={handleTextFieldValueChange}
             endAdornment={
               <InputAdornment position='end'>
-                <IconButton size='small' color='theme' aria-lebel='go' onClick={handleButtonClick}>
+                <IconButton size='small' color='theme' aria-label='go' onClick={handleButtonClick}>
                   <KeyboardReturnIcon fontSize='small' />
                 </IconButton>
               </InputAdornment>
