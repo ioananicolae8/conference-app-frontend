@@ -10,7 +10,7 @@
     "Settings": "Setari",
     "User": "Profil",
     "ConferenceList": "Lista Conferinte",
-    "MyConferences" : "Conferintele mele"
+    "MyConferences": "Conferintele mele"
   },
   "Tooltips": {
     "Logout": "Iesire",
@@ -52,31 +52,34 @@
     "Title": "Bun venit!",
     "Subtitle": "Te rog introdu email-ul personal:",
     "BadEmail": "Email incorect!",
-    "UserMenu" : "Utilizator"
+    "UserMenu": "Utilizator"
   },
   "UserMenu": {
-    "User" : "Utilizator"
+    "User": "Utilizator"
   },
   "General": {
     "Buttons": {
       "ApplyFilters": "Aplica filtre",
       "ResetFilters": "Reseteaza filtre",
-      "AddConference" : "Adauga Conferinta",
+      "AddConference": "Adauga Conferinta",
       "Save": "Salveaza",
       "AddSpeakers": "Adauga orator",
       "DeleteSpeaker": "Sterge orator"
-    }
+    },
+    "Congratulations": "Felicitari!"
   },
   "Conferences": {
-    "Filters" : {
+    "Filters": {
       "StartDate": "Data inceput",
       "EndDate": "Data sfarsit"
     },
-    "Speaker" : "Orator: ",
+    "Speaker": "Orator: ",
     "Attend": "Participa",
     "Join": "Inscrie-te",
     "Withdraw": "Retrage-te",
-    "StatusNotSet": "Nu participi"
+    "StatusNotSet": "Nu participi",
+    "SuccessfullyAttendee": "Felicitari! Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa.",
+    "QRCodeMessage": "Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa. Foloseste urmatorul cod pentru a accesa conferinta: {{code}}"
   },
   "MyConferences": {
     "Edit": "Editeaza",
@@ -107,4 +110,4 @@
     "Rating": "Rating",
     "MainSpeaker": "Orator principal"
   }
-  }
+}
