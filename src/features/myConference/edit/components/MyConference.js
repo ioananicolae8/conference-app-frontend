@@ -57,6 +57,7 @@ MyConference.propTypes={
     cities: PropTypes.array,
     conference: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired
+
 }
  
 export default MyConference;

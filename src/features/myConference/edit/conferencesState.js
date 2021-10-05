@@ -16,7 +16,7 @@ export const initialConferences = {
     longitude: emptyString
   },
   speakers: emptyArray,
-  deletedSpeakers: emptyArray
+  deleteSpeakers: emptyArray
 }
 
 export const reducer = (state, action) => {
@@ -49,7 +49,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         speakers: state.speakers.filter(s => s.id !== action.payload),
-        deletedSpeakers: action.payload > 0 ? [...state.deletedSpeakers, action.payload] : state.deletedSpeakers
+        deleteSpeakers: action.payload > 0 ? [...state.deleteSpeakers, action.payload] : state.deleteSpeakers
       }
     }
 

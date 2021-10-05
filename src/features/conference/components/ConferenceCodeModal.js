@@ -1,27 +1,45 @@
 import React from 'react'
-import qrCode from 'assets/img/qrCode.png'
-import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
-import { Typography } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
+import { Grid, Typography } from '@material-ui/core'
+import qrCode from 'assets/img/qrCode.png'
+import ConferenceItem from './ConferenceItem'
+import { isEmpty } from 'ramda'
 
-const ConferenceCodeModal = ({ code }) => {
-  const { t } = useTranslation()
 
-  return (
-    <Grid container justify={'center'}>
-      <Grid item>
-        <img src={qrCode} alt='QR' />
-      </Grid>
-      <Grid item>
-        <Typography>{t('Conferences.QRCodeMessage', { code })}</Typography>
-      </Grid>
-    </Grid>
-  )
+const ConferenceCodeModal = ({ code, suggestedConferences, onAttend }) => {
+    const { t } = useTranslation()
+    return (
+        <>
+            <Grid container justifyContent='center'>
+                <Grid item lg={12}>
+                    <img alt='qrCode' src={qrCode} style={{ maxHeight: '100px' }} />
+                </Grid>
+                <Grid item>
+                    <Typography variant='subtitle1'> {t('Conferences.QRCodeMessage', { code })}</Typography>
+                </Grid>
+            </Grid>
+            {!isEmpty(suggestedConferences) && (
+                < Grid container>
+                    <Grid item lg={12}>
+                        <Typography>{t('General.SuggestedConferences')}</Typography>
+                    </Grid>
+                    {suggestedConferences.map(conference => 
+                        <Grid item key={conference?.id}>
+                            <ConferenceItem conference={conference} onAttend={onAttend} />
+                        </Grid>
+                    )}
+                </Grid>
+            )}
+        </>
+    )
+ 
 }
-
+ 
 ConferenceCodeModal.propTypes = {
-  code: PropTypes.string.isRequired
+    code: PropTypes.string,
+    suggestedConferences: PropTypes.array,
+    onAttend: PropTypes.func
 }
-
+ 
 export default ConferenceCodeModal

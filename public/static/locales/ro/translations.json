@@ -85,7 +85,8 @@
   },
   "MyConferences": {
     "Edit": "Editeaza",
-    "Delete": "Sterge"
+    "Delete": "Sterge",
+    "SavingSucceeded": "Conferinta salvata cu succes!"
   },
   "Conference": {
     "Info": "Informatii conferinta",

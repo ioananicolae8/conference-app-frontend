@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core'
 import Button from '@bit/totalsoft_oss.react-mui.button'
 
 const ConferenceContent = props => {
-  const { conference, onAttend } = props
+  const { conference, onAttend, onWithDraw} = props
   const { status, startDate, endDate, type, category } = conference
   const { t } = useTranslation()
   const noStatusSet = t('Conferences.StatusNotSet')
@@ -41,7 +41,7 @@ const ConferenceContent = props => {
             )}
 
             {showWithdraw && (
-              <Button right color='danger' size='sm'>
+              <Button onClick={onWithDraw(conference?.id)} right color='danger' size='sm'>
                 {t('Conferences.Withdraw')}
               </Button>
             )}
@@ -60,7 +60,8 @@ const ConferenceContent = props => {
 
 ConferenceContent.propTypes = {
   conference: PropTypes.object.isRequired,
-  onAttend: PropTypes.func.isRequired
+  onAttend: PropTypes.func.isRequired,
+  onWithDraw: PropTypes.func.isRequired
   // shape({a: PropTypes.func, t: PropTypes.string, s:PropTypes.object}) varianta pentru forma obiectului
 }
 

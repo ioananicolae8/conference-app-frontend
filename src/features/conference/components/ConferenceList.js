@@ -4,14 +4,14 @@ import { PropTypes } from 'prop-types'
 import ConferenceItem from './ConferenceItem'
 
 const ConferenceList = props => {
-  const { conferences, onAttend } = props
+  const { conferences, onAttend, onWithDraw } = props
 
   return (
     <Grid container spacing={2}>
       {conferences?.map(conference => {
         return (
           <Grid item xs={12} lg={4} key={conference.id}>
-            <ConferenceItem conference={conference} onAttend={onAttend} />
+            <ConferenceItem conference={conference} onAttend={onAttend} onWithDraw = {onWithDraw} />
           </Grid>
         )
       })}
@@ -21,7 +21,8 @@ const ConferenceList = props => {
 
 ConferenceList.propTypes = {
   conferences: PropTypes.array,
-  onAttend: PropTypes.func
+  onAttend: PropTypes.func,
+  onWithDraw: PropTypes.func
 }
 
 export default ConferenceList
