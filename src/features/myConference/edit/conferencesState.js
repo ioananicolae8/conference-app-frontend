@@ -49,7 +49,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         speakers: state.speakers.filter(s => s.id !== action.payload),
-        deleteSpeakers: action.payload > 0 ? [...state.deleteSpeakers, action.payload] : state.deleteSpeakers
+        deleteSpeakers: action.payload > 0 ? [...(state.deleteSpeakers || []), action.payload] : state.deleteSpeakers
       }
     }
 

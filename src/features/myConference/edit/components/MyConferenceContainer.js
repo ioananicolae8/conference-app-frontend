@@ -88,6 +88,8 @@ const MyConferenceContainer = () => {
     updateConference({ variables: { input } })
   }, [conference, email, updateConference])
 
+  
+
   useEffect(() => {
     setHeader(
       <MyConferenceHeader title={conference.name} actions={<SaveButton title={t('General.Buttons.Save')} onClick={handleSave} />} />
