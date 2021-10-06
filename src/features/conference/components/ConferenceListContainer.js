@@ -16,6 +16,11 @@ import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useTranslation } from 'react-i18next'
 import { emptyArray, emptyString } from 'utils/constants'
 import { WITHDRAW_CONFERENCE } from '../gql/mutations/WithdrawConference'
+import { JOIN_CONFERENCE_MUTATION } from '../gql/mutations/JoinConference'
+import { useHistory } from 'react-router'
+import state from 'constants/attendeeStatus'
+
+let conferenceList = []
 
 function ConferenceListContainer() {
   const [filters, setFilters] = useState(generateDefaultFilters())
@@ -26,6 +31,7 @@ function ConferenceListContainer() {
   const { t } = useTranslation()
   const addToast = useToast()
   const [email] = useEmail()
+  const history = useHistory()
   const [suggestedConferences, setSuggestedConferences] = useState(emptyArray)
   const [, setFooter] = useFooter()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,7 +44,8 @@ function ConferenceListContainer() {
     },
     onCompleted: result => {
       const totalCount = result?.conferenceList.pagination.totalCount
-      setPager(state => ({ ...state, totalCount }))
+      conferenceList = [...result?.conferenceList.values]
+      setPager(state => ({ ...state, totalCount, conferenceList: result?.conferenceList.values }))
     }
   })
   const handleRowsPerPageChange = useCallback(pageSize => {
@@ -47,6 +54,30 @@ function ConferenceListContainer() {
   const handlePageChange = useCallback(page => {
     setPager(state => ({ ...state, page }))
   }, [])
+
+  const [join] = useMutation(JOIN_CONFERENCE_MUTATION, {
+    onCompleted: () => {
+      addToast(t('Conferences.Join'), 'success')
+      refetch()
+    },
+    onError: error => addToast(error, 'error', false)
+  })
+
+  const handleJoin = useCallback(
+    conferenceId => () => {
+      join({
+        variables: {
+          input: {
+            conferenceId,
+            attendeeEmail: email
+          }
+        }
+      })
+      refetch()
+      history.push(`/startConference/${conferenceId}`, { ...state, conferenceList })
+    },
+    [email, history, join, refetch]
+  )
 
   const [attend] = useMutation(ATTEND_CONFERENCE, {
     onError: showError,
@@ -71,7 +102,7 @@ function ConferenceListContainer() {
   const handleWithdraw = useCallback(
     conferenceId => () => {
       withdraw({
-        variables:{
+        variables: {
           input: {
             conferenceId,
             attendeeEmail: email
@@ -81,6 +112,8 @@ function ConferenceListContainer() {
     },
     [withdraw, email]
   )
+
+    
 
   const handleAttend = useCallback(
     conferenceId => () => {
@@ -117,13 +150,14 @@ function ConferenceListContainer() {
     setCode(emptyString)
     refetch
   }, [refetch])
+
   if (loading || !data) {
     return <LoadingFakeText lines={10} />
   }
   return (
     <>
       <ConferenceFilters filters={filters} onApplyFilters={handleApplyFilters} />
-      <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} onWithDraw={handleWithdraw} />
+      <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} onWithDraw={handleWithdraw} onJoin={handleJoin} />
       <DialogDisplay
         id='showQRCode'
         open={open}

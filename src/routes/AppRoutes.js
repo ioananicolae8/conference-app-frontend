@@ -12,6 +12,7 @@ import { useEmail } from 'hooks/useEmail'
 import ConferenceListContainer from 'features/conference/components/ConferenceListContainer'
 import MyConferenceListContainer from 'features/myConference/list/components/MyConferenceListContainer'
 import MyConferenceContainer from 'features/myConference/edit/components/MyConferenceContainer' 
+import TimerContent from 'features/conference/components/TimerContent'
 
 export default function AppRoutes() {
   const [email] = useEmail()
@@ -34,6 +35,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path="/myConferenceList" component={MyConferenceListContainer} />
       <CustomRoute isPrivate={false} exact path="/myConferences/:id(new)" component={MyConferenceContainer} />
       <CustomRoute isPrivate={false} exact path="/myConferences/:id(\d+)" component={MyConferenceContainer} />
+      <CustomRoute isPrivate={false} exact path="/startConference/:id" component={TimerContent}/>
       <Redirect exact from='/' to='/welcome' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />

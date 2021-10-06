@@ -52,6 +52,7 @@
     "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-datetime": "^3.0.4",
+    "react-datetime-picker": "^3.4.1",
     "react-dom": "^17.0.2",
     "react-flags": "^0.1.18",
     "react-i18next": "^11.11.0",
