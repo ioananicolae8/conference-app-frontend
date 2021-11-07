@@ -6,7 +6,6 @@ import qrCode from 'assets/img/qrCode.png'
 import ConferenceItem from './ConferenceItem'
 import { isEmpty } from 'ramda'
 
-
 const ConferenceCodeModal = ({ code, suggestedConferences, onAttend }) => {
     const { t } = useTranslation()
     return (

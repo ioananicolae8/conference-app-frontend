@@ -84,7 +84,9 @@
     "NotDate":"Conferinta nu a inceput",
     "SuccessfullyAttendee": "Felicitari! Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa.",
     "QRCodeMessage": "Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa. Foloseste urmatorul cod pentru a accesa conferinta: {{code}}",
-    "SuccessfullyWithdrawn": "Te-ai retras cu succes de la aceasta conferinta!"
+    "SuccessfullyWithdrawn": "Te-ai retras cu succes de la aceasta conferinta!",
+    "Leave": "Paraseste conferinta",
+    "Rating": "Evalueaza conferinta"
   },
   "MyConferences": {
     "Edit": "Editeaza",
